@@ -1,112 +1,81 @@
-🏊 Sistema Inteligente de Prevenção de Afogamentos em Piscinas
-Este projeto visa desenvolver um sistema acessível e inteligente para monitorar piscinas, utilizando inteligência artificial e sensores para prevenir afogamentos, com foco especial em crianças e animais de estimação.
+# 🏊‍♂️ SafePoolEx - Sistema Inteligente de Prevenção de Afogamentos em Piscinas
 
-🎯 Objetivo Geral
-Desenvolver um sistema acessível que utilize inteligência artificial e sensores para monitorar piscinas, prevenindo acidentes através da detecção precoce de situações de risco e acionamento de alertas sonoros e visuais.
+> **Projeto Acadêmico (TCC) | FATEC Botucatu — Análise e Desenvolvimento de Sistemas**
 
-🚀 Objetivos Específicos
-Pesquisar soluções tecnológicas existentes no mercado.
+O **SafePoolEx** é um sistema acessível e inteligente voltado para o monitoramento contínuo de áreas aquáticas residenciais e comerciais. Utilizando Inteligência Artificial (Visão Computacional) e Internet das Coisas (IoT), o projeto visa prevenir acidentes por afogamento através da detecção precoce de situações de risco e emissão de alertas em tempo real, com foco especial em crianças e animais de estimação.
 
-Criar um protótipo funcional de monitoramento.
+---
 
-Utilizar Visão Computacional (IA), especificamente modelos como YOLO, para identificar pessoas e animais.
+## 🎯 Objetivos do Projeto
 
-Diferenciar adultos, crianças e animais próximos à piscina.
+### **Objetivo Geral**
+Desenvolver uma solução de baixo custo que utilize IA e sensores para monitorar piscinas, prevenindo acidentes por meio da identificação de cenários de risco e acionamento automático de alertas sonoros e visuais.
 
-Integrar sensores adicionais (futuramente) para aumentar a precisão.
+### **Objetivos Específicos**
+* **Detecção Inteligente:** Aplicar modelos de Visão Computacional (YOLO) para identificar e diferenciar adultos, crianças e pets próximos à piscina.
+* **Alertas em Tempo Real:** Disparar sirenes e sinalizações visuais imediatamente ao detectar uma aproximação não supervisionada.
+* **Solução Acessível:** Projetar uma arquitetura de baixo custo viável para o mercado brasileiro.
+* **Pesquisa e Benchmark:** Mapear e comparar as soluções tecnológicas existentes no mercado de segurança aquática.
 
-Emitir alertas sonoros e visuais em situações de risco.
+---
 
-Desenvolver uma solução de baixo custo e acessível ao público brasileiro.
+## 🧐 Problema Abordado
 
-🧐 Problema Abordado
-Afogamentos em piscinas são uma das principais causas de acidentes fatais em ambientes residenciais e recreativos, especialmente envolvendo crianças. A ausência de supervisão constante aumenta consideravelmente os riscos. Este projeto busca mitigar esse problema através de tecnologia inteligente e acessível.
+Os afogamentos em piscinas representam uma das principais causas de acidentes fatais em ambientes residenciais, afetando desproporcionalmente crianças. A ausência de supervisão humana constante potencializa esses riscos. O SafePoolEx atua como uma camada de segurança ativa e automatizada para mitigar essas falhas de atenção.
 
-🧠 Base Teórica
-Este projeto se baseia em conceitos de:
+---
 
-Inteligência Artificial (IA) e seus subcampos:
+## 🧠 Base Teórica e Arquitetura de IA
 
-Machine Learning (ML): Para tarefas de aprendizado com dados estruturados.
+O projeto fundamenta-se nos seguintes conceitos computacionais:
+* **Deep Learning (DL) & Visão Computacional:** Processamento e análise de fluxos de vídeo em tempo real para interpretação de cenários não estruturados.
+* **YOLO (You Only Look Once):** Arquitetura de rede neural convolucional de ponta, otimizada para detecção e classificação de objetos com alta velocidade e precisão.
+* **Machine Learning (ML):** Aprendizado com dados estruturados para tomada de decisão e refinamento de alertas.
 
-Deep Learning (DL): Para processamento de dados não estruturados como imagens e vídeos, utilizando redes neurais.
+---
 
-Visão Computacional: Permite que sistemas "vejam" e interpretem imagens e vídeos.
+## 🛠️ Tecnologias e Ferramentas
 
-YOLO (You Only Look Once): Uma arquitetura de rede neural de ponta para detecção de objetos em tempo real, otimizada para velocidade e precisão.
+* **Linguagem de Programação:** Python 3.8+
+* **Frameworks de IA:** Ultralytics YOLO (YOLOv5 / YOLOv8), OpenCV
+* **Ambiente de Desenvolvimento:** VS Code, Google Colab (Treinamento com aceleração por GPU)
+* **Hardware (Protótipo & Fase Embarcada):** Notebook, Câmeras IP/Local, Raspberry Pi (meta futura), Arduino
+* **Banco de Dados:** MySQL (Projetado para persistência de métricas e histórico de eventos)
+* **Controle de Versão:** Git e GitHub
 
-🛠️ Tecnologias e Ferramentas Utilizadas
-Linguagens de Programação: Python (principalmente).
+---
 
-Frameworks de IA/Visão Computacional: YOLO (e seus derivados como YOLOv5/v8).
+## 📍 Dataset e Estratégia de Treinamento
 
-Banco de Dados: MySQL (para gerenciamento de dados, se necessário em futuras integrações).
+* **Dataset Principal:** Combinação de bases públicas focadas em detecção infantil (como o *YOLO-CDD*) com um dataset customizado para cenários aquáticos.
+* **Variabilidade das Amostras:** Treinamento planejado considerando variações de iluminação, ângulos de câmera, reflexos na água e diferentes condições ambientais.
 
-Ambiente de Desenvolvimento: VS Code.
+---
 
-Plataformas de Desenvolvimento/Treinamento:
+## 💡 Transparência e Desafios Técnicos (Trade-offs)
 
-Google Colab: Para treinamento de modelos de IA com acesso a GPUs gratuitas.
+O desenvolvimento prático envolveu decisões estratégicas diante de restrições técnicas:
 
-GitHub: Para controle de versão do código e colaboração.
+1. **Infraestrutura e Hardware:** Dada a ausência de uma GPU dedicada local para treinamento pesado, utilizou-se o ambiente do **Google Colab** para execução dos scripts.
+2. **Escolha da Variante (YOLOv8 Nano):** Optou-se pela versão *Nano* (`yolov8n`) para priorizar alta taxa de quadros por segundo (FPS) e menor latência, permitindo rodar em hardwares mais limitados.
+3. **Reconhecimento Acadêmico:** A fundamentação teórica e a modelagem do sistema resultaram em um artigo científico aceito e publicado na revista acadêmica da FATEC.
 
-Hardware (Protótipo/Testes): Notebook, Raspberry Pi (meta futura), Câmera, Celular.
+---
 
-📍 Dataset
-Dataset Principal: Combinação de datasets públicos focados em detecção de crianças (ex: YOLO-CDD para a classificação geral) e um dataset customizado para cenários de piscina.
+## 🚀 Roadmap e Visão de Futuro
 
-Coleta: Serão utilizadas imagens e vídeos coletados com permissão, variações de iluminação, ângulos e situações. Bancos de imagens com licença apropriada também podem ser utilizados.
+- [x] Prova de conceito e validação do modelo YOLO em ambiente de testes.
+- [x] Elaboração e aprovação do artigo científico sobre o projeto.
+- [ ] Fine-tuning da rede neural com dataset exclusivo de piscinas complexas.
+- [ ] Integração do modelo no hardware embarcado (Raspberry Pi + Arduino).
+- [ ] Expansão da detecção para identificar adultos em situação de risco (ex: mal súbito).
+- [ ] Integração com assistentes virtuais e plataformas de casas inteligentes (*Smart Home*).
 
-🚀 Funcionalidades do Sistema
-Detecção Inteligente: Reconhecimento e diferenciação de adultos, crianças e animais na área da piscina.
+---
 
-Alertas Automáticos: Acionamento de alertas sonoros (sirenes) e visuais, com potencial para notificações em dispositivos conectados (celular, tablet).
+## ✒️ Autora e Contato
 
-Camadas de Segurança: Possibilidade de configurar níveis de segurança e desativação temporária pelos responsáveis.
-
-Acessibilidade: Foco em hardware acessível e baixo custo para o mercado brasileiro.
-
-📈 Estrutura Prevista do Projeto
-Introdução: Contextualização do problema, revisão bibliográfica sobre afogamentos, segurança aquática e IA.
-
-Metodologia:
-
-Levantamento e seleção de ferramentas e datasets.
-
-Desenvolvimento e treinamento do modelo de IA.
-
-Criação do protótipo funcional.
-
-Desenvolvimento do Sistema:
-
-Arquitetura do software (PC/Raspberry Pi + Arduino).
-
-Integração do modelo de IA com os alertas.
-
-Testes e Validação:
-
-Testes em ambiente controlado.
-
-Análise de resultados, precisão e limitações.
-
-Considerações Finais e Contribuições:
-
-Discussão sobre a viabilidade do projeto e potencial comercial.
-
-Propostas para melhorias futuras.
-
-🌟 Futuro do Projeto
-Expansão da detecção para incluir adultos em risco (ex: mal súbito).
-
-Comercialização como um produto de segurança residencial/recreativa.
-
-Integração com assistentes virtuais e sistemas de casa inteligente.
-
-🤝 Como Contribuir
-Este é um projeto open-source em desenvolvimento. Se você tiver interesse em contribuir, por favor, crie uma issue para discutir suas ideias ou envie um pull request com suas melhorias.
-
-⚠️ Licença
-[Insira aqui a licença que você pretende usar, por exemplo, MIT License. Se ainda não decidiu, pode deixar este campo para depois.]
-
-📧 Contato
-Ana Maria Zava- anazavafatec@gmail.com
+**Ana Maria Zava**  
+*Graduanda em Análise e Desenvolvimento de Sistemas — FATEC Botucatu*  
+📧 **Contato:** [anazavafatec@gmail.com](mailto:anazavafatec@gmail.com)  
+🔗 [LinkedIn](https://www.linkedin.com/in/anamariazava/) | [GitHub Profile](https://github.com/ANAMARIAZAVA)
